@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call for Collab</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Trebuchet MS;
+            margin: 0;
+            padding: 0;
+            background-color: LemonChiffon;
+            overflow-y: auto;
+        }
+
+        header {
+            background-color: #154c79;
+            color: ivory;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        header img {
+            height: 120px;
+            width: auto;
+        }
+
+        .header-title {
+            flex-grow: 1;
+            font-size: 50px;
+            font-weight: bold;
+            margin: 0 auto;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #6F8FAF;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+        
+        nav a:hover {
+            color: #154c79;
+            border-bottom: 2px solid #154c79;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            nav a {
+                margin: 0 5px;
+                font-size: 12px;
+            }
+        }
+
+        .account {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .account img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: linen;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .account:hover .dropdown {
+            display: block;
+        }
+
+        .hero {
+            background-color: #254f6d;
+            font-family: Trebuchet MS;
+            color: #f5f5e8;
+            padding: 60px 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+        
+        .hero h1{
+          font-size:36px;
+          margin-bottom: 30px;
+          font-weight: bold;
+          text-shadow: 2px 2px 0px rgba(150,150,150,0.5);
+          font-family: Trebuchet MS;
+          letter-spacing: 5px;
+        }
+        
+        .hero p{
+            font-size:20px;
+            font-weight: 400;
+            margin-bottom: 52px;
+            letter-spacing: 1.7px;
+        }
+        
+        
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .collab-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1f4c79;
+        }
+
+        /* Form Styles */
+        .collab-form {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .collab-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1f4c79;
+        }
+
+        .collab-form input, 
+        .collab-form select, 
+        .collab-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .collab-form button {
+            background-color: #1f4c79;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .collab-form button:hover {
+            background-color: #1e5a8b;
+        }
+
+        /* Featured Projects */
+        .featured-projects {
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #1f4c79;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .project-card p strong {
+            font-weight: bold;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #1f4c79;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: #1e5a8b;
+        }
+
+        .nav-links a.active {
+            color: #1e5a8b;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .collab-container {
+                padding: 15px;
+            }
+
+            .collab-form {
+                padding: 20px;
+            }
+
+            .project-card {
+                padding: 15px;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+
+ <header>
+    <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
+    <h1 class="header-title">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
+    </h1>
+    <div class="account">
+        <a href="signup_login.html">
+            <img src="https://via.placeholder.com/50" alt="My account">
+        </a>
+         <div class="dropdown" id="account-dropdown">
+            <div class="dropdown" id="account-dropdown">
+                <a href="signup_login.html" id="signup-login">Sign Up/Log In</a>
+                <a href="profile.html" id="my-account" style="display: none;">My Account</a>
+                <a href="#" id="messages" style="display: none;">Messages</a>
+                <a href="#" id="order-dashboard" style="display: none;">Order Dashboard</a>
+                <a href="#" id="logout-btn" style="display: none;">Logout</a>
+            </div>
+         </div>
+    </div>
+</header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="idea_pool.html">Idea Pool</a>
+        <a href="find_designers.html">Find Designers</a>
+        <a href="">#From Hatch! to Quack</a>
+        <a href="community.html">Community</a>
+        <a href="guide.html">Guide and Support</a>
+    </nav>
+    
+     <script>
+        // Simulated login state (replace this logic with real authentication system)
+        const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+
+        // DOM elements
+        const signupLogin = document.getElementById('signup-login');
+        const myAccount = document.getElementById('my-account');
+        const messages = document.getElementById('messages');
+        const orderDashboard = document.getElementById('order-dashboard');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Update dropdown based on login state
+        if (userLoggedIn) {
+            signupLogin.style.display = 'none';
+            myAccount.style.display = 'block';
+            messages.style.display = 'block';
+            orderDashboard.style.display = 'block';
+            logoutBtn.style.display = 'block';
+        } else {
+            signupLogin.style.display = 'block';
+            myAccount.style.display = 'none';
+            messages.style.display = 'none';
+            orderDashboard.style.display = 'none';
+            logoutBtn.style.display = 'none';
+        }
+
+        // Logout functionality
+        logoutBtn.addEventListener('click', () => {
+            localStorage.setItem('userLoggedIn', 'false');
+            alert('Logged out successfully!');
+            location.reload();
+        });
+
+        // Simulated login for testing
+        signupLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.setItem('userLoggedIn', 'true');
+            alert('Logged in successfully!');
+            location.reload();
+        });
+    </script>
+    <!-- Main section with hero image and content -->
+    <div class="hero">
+        <h1>Find Designers</h1>
+        <p>Fresh ideas, new opportunities.</p>
+    </div>
+
+    <div class="collab-container">
+
+    <!-- Collaboration Form -->
+    <h2>Submit Your Collaboration Request</h2>
+    <form class="collab-form">
+        <label for="business-name">Business Name:</label>
+        <input type="text" id="business-name" name="business-name" placeholder="Your business name" required>
+
+        <label for="category">Project Category:</label>
+        <select id="category" name="category" required>
+            <option value="">--Select a category--</option>
+            <option value="home-goods">Home Goods</option>
+            <option value="stationery">Stationery</option>
+            <option value="travel-products">Travel Products</option>
+        </select>
+
+        <label for="project-title">Project Title:</label>
+        <input type="text" id="project-title" name="project-title" placeholder="Brief project title" required>
+
+        <label for="description">Project Description:</label>
+        <textarea id="description" name="description" rows="5" placeholder="Describe your project and what you're looking for" required></textarea>
+            
+        <label for="business-website">Official Website:</label>
+        <input type="text" id="business-website" name="business-website" placeholder="Official Website (optional)">
+
+        <label for="deadline">Submission Deadline:</label>
+        <input type="date" id="deadline" name="deadline" required>
+
+        <button type="submit">Post Request</button>
+    </form>
+
+    <!-- Featured Projects -->
+    <div class="featured-projects">
+        <h2>Featured Projects</h2>
+        <div class="nav-links">
+            <a href="#" class="active" onclick="filterProjects('all')"><u>All</u></a>
+            <a href="#" onclick="filterProjects('home-goods')"><u>Home Goods</u></a>
+            <a href="#" onclick="filterProjects('stationery')"><u>Stationery</u></a>
+            <a href="#" onclick="filterProjects('travel-products')"><u>Travel Products</u></a>
+        </div>
+
+        <div class="project-card" data-category="Stationery">
+            <h3>Writing a 0 Waste Future</h3>
+            <p>Looking for a sustainable solution to address correction tape waste.</p>
+            <p><strong>Deadline:</strong> Dec 20, 2025</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Form Validation
+    document.querySelector('.collab-form').addEventListener('submit', function (e) {
+        const businessName = document.getElementById('business-name').value.trim();
+        const projectTitle = document.getElementById('project-title').value.trim();
+        const description = document.getElementById('description').value.trim();
+        const deadline = document.getElementById('deadline').value.trim();
+        const category = document.getElementById('category').value;
+
+        if (!businessName || !projectTitle || !description || !deadline || !category) {
+            alert('Please fill out all fields in the form.');
+            e.preventDefault();
+        } else {
+            alert('Your collaboration request has been submitted successfully!');
+        }
+    });
+
+    // Dynamic Filtering for Featured Projects
+    const filterProjects = (category) => {
+        const projects = document.querySelectorAll('.project-card');
+        projects.forEach(project => {
+            const projectCategory = project.getAttribute('data-category');
+            if (category === 'all' || projectCategory === category) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    };
+</script>
+
+
+
+   <footer>
+        <p>Hatch! &copy; 2024 | All rights reserved</p>
+    </footer>
+
+</body>
+</html>

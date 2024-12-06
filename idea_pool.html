@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Pool - Hatch!</title>
+
+
+    <style>
+    /* Base styling */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Trebuchet MS;
+        margin: 0;
+        padding: 0;
+        background-color: lemonchiffon;
+        overflow-y: auto;
+    }
+
+    header {
+        background-color: #154c79;
+        color: ivory;
+        padding: 10px 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    header img {
+        height: 120px;
+        width: auto;
+    }
+
+    .header-title {
+        flex-grow: 1;
+        font-family: Trebuchet MS;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 0 auto;
+        text-align: center;
+        letter-spacing: 5px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    nav a {
+        margin: 0 15px;
+        color: #6F8FAF;
+        text-decoration: none;
+        font-weight: bold;
+        white-space: nowrap;
+        transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    nav a:hover {
+        color: #1e5a8b;
+        border-bottom: 2px solid #1e5a8b;
+    }
+
+    .hero {
+        background-color: #254f6d;
+        color: #f5f5e8;
+        padding: 60px 20px;
+        text-align: center;
+        width: 100%;
+        line-height: 1.2;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 0px rgba(150,150,150,0.5);
+        font-family: Trebuchet MS;
+    }
+
+    .hero p {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 52px;
+    }
+
+    /* Idea Pool Styling */
+    .idea-pool-section {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .idea-pool-section h2 {
+        font-size: 30px;
+        color: #154c79;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+    }
+
+    .category-buttons {
+        margin-bottom: 20px;
+    }
+
+    .category-buttons button {
+        background-color: #e5e4e2;
+        color: #333;
+        border: none;
+        border-radius: 20px;
+        padding: 15px 20px;
+        margin: 18px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .category-buttons button:hover {
+        background-color: #c0c0c0;
+        color: white;
+    }
+
+    .ideas-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .idea-card {
+        background-color: #a3bed8;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s, background-color 0.3s;
+        color: #f3e1b9;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+
+    .idea-card:hover {
+        background-color: #1e5a8b;
+        transform: scale(1.05);
+        color: #fff;
+    }
+
+    .idea-card h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .designer-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom:10px;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .designer-profile-pic {
+    border-radius: 50%; /* Ensure the profile picture is circular */
+    margin-right: 10px; /* Space between the picture and name */
+    margin-top: 5px;
+    }
+
+    .idea-description {
+    margin-top: 15px; /* Space above the description */
+    text-align: center; /* Center align the description */
+    }
+
+    .contact-button {
+        background-color: #FFFDAB9;
+        color: #1f4c79;
+        margin-top: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color: 0.3s, box-shadow: 0.3s;
+        display: inline-block;
+        width: fit-content;
+        box-sizing: border-box;
+        position: relative;
+        vertical-align: middle;
+    }
+    
+    .button-container {
+    display: flex; /* Flexbox Layout */
+    justify-content: center; /* Horizontally Center the Button */
+    align-items: center; /* Vertically Center the Button */
+    height: auto; /* Adjust Height Automatically */
+    position: relative; /* Stabilize Internal Content */
+    }
+
+    
+    .contact-button: hover{
+        background-color: #B0C4DE;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .idea-card:hover .contact-button {
+        display: block;
+    }
+
+    /* Account dropdown */
+    .account {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .account img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: linen;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 5px;
+    }
+
+    .dropdown a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .account:hover .dropdown {
+        display: block;
+    }
+
+   
+    /* Modal Overlay */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+        display: none; /* Hidden by default */
+        z-index: 1000;
+    }
+
+    /* Modal Box */
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: none; /* Hidden by default */
+        z-index: 1001;
+        text-align: center;
+    }
+
+    /* Close Button */  
+    .modal-close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* Modal Heading */
+    .modal h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-family: Trebuchet MS;
+    }
+
+    /* Modal Paragraph */
+    .modal p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+        font-family: Trebuchet MS;
+    }
+
+    /* Modal Buttons */
+    .modal button {
+        background: linear-gradient(to bottom, #1f4c79, #1e5a8b);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin: 5px;
+        cursor: pointer;
+        font-family: Trebuchet MS;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .modal button:hover {
+        background: linear-gradient(to bottom, #1e5a8b, #1f4c79);
+        box-shadow: 0px 6px 8px rgba(0,0,0,0.3);
+        transform: translateY(-2px);
+    }
+    
+    /* Popup overlay styles */
+    .popup-overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* On top of other content */
+    }
+
+/* Popup content styles */
+    .popup-content {
+        background: #fff;
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+    }
+
+/* Close button */
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+    }
+
+/* Popup image */
+    .popup-image {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        margin: 15px 0;
+    }
+
+/* Designer gallery link */
+    .designer-gallery-link {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #1f4c79;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .designer-gallery-link:hover {
+        background-color: #1e5a8b;
+    }
+    
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Header with website title and navigation -->
+    <header>
+        <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
+        <h1 class="header-title">
+            <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
+        </h1>
+        <div class="account">
+            <a href="signup_login.html">
+                <img src="https://via.placeholder.com/50" alt="My account">
+            </a>
+            <div class="dropdown">
+                <a href="signup_login.html">Signup/Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="idea_pool.html">Idea Pool</a>
+        <a href="find_designers.html">Find Designers</a>
+        <a href="">#From Hatch! to Quack</a>
+        <a href="community.html">Community</a>
+        <a href="guide.html">Guide and Support</a>
+    </nav>
+
+    <!-- Main Hero Section -->
+    <div class="hero">
+        <h1>Idea Pool</h1>
+        <p>From sketch to hatch, we'll walk through it together!</p>
+    </div>
+
+    <!-- Idea Pool Section -->
+    <!-- Idea Pool Section -->
+<section class="idea-pool-section">
+    <h2>Current Ideas</h2>
+     <div class="category-buttons">
+        <button class="category-btn" onclick="filterIdeas('home-goods')">Home Goods</button>
+        <button class="category-btn" onclick="filterIdeas('stationery')">Stationery</button>
+        <button class="category-btn" onclick="filterIdeas('travel-products')">Travel Products</button>
+    </div>
+    
+    <div class="ideas-grid">
+        <!-- Idea Card 1 -->
+            <div class="idea-card idea-item home-goods active" onclick="designers_gallery.html">
+                <h3>Atomic Storage Box</h3>
+                <img src="image1_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Agetha Chen</span>
+                </div>
+                <div class="idea-description">Easy storaging without limits.</div>
+            <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+            </div>
+            </div>
+        <!-- Idea Card 2 -->
+            <div class="idea-card idea-item stationery active" onclick="openPopup('image2.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image2_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                    <a href="messages.html">
+                    <button class="contact-button">Contact</button>
+                    </a>
+                </div>
+            </div>
+        <!-- Idea Card 3 -->
+            <div class="idea-card idea-item travel-products active" onclick="openPopup('image3.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image3_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                    <a href="messages.html">
+                    <button class="contact-button">Contact</button>
+                    </a>
+                </div>
+             </div>
+        <!-- Additional Idea Cards -->
+            <div class="idea-card idea-item home-goods active" onclick="openPopup('image4.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image4_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+            <div class="idea-card idea-item stationery active" onclick="openPopup('image5.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image5_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+            
+            <div class="idea-card idea-item travel-products active" onclick="openPopup('image6.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image6_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+            <div class="idea-card idea-item home-goods active" onclick="openPopup('image7.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image7_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+             <div class="idea-card idea-item stationery active" onclick="openPopup('image8.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image8_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+        <div class="idea-card idea-item travel-products active" onclick="openPopup('image9.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image1_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="messages.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Popup Overlay -->
+        <div class="popup-overlay" id="popup-overlay">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">×</span>
+                <img src="" alt="Enlarged Design" class="popup-image" id="popup-image">
+                <div class="designer-info">
+                    <span id="popup-designer-name">Designer Name</span>
+            </div>
+            <a href="#" class="designer-gallery-link">Visit Designer's Gallery</a>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Hatch! All Rights Reserved.</p>
+    </footer>
+
+    
+    <script>
+            function filterIdeas(category) {
+            const cards = document.querySelectorAll('.idea-item');
+            cards.forEach(card => {
+                if (card.classList.contains(category)) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+        
+            function filterIdeas(category) {
+                const allIdeas = document.querySelectorAll('.idea-card');
+                allIdeas.forEach(idea => {
+                    if (idea.classList.contains(category)) {
+                        idea.style.display = 'block';
+                    } else {
+                        idea.style.display = 'none';
+                    }
+                });
+            }
+    </script>
+    
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Modal Box -->
+    <div class="modal" id="modalBox">
+        <span class="modal-close-btn" id="closeModalBtn">&times;</span>
+        <h2>Sign Up or Login</h2>
+        <p> Log In / Sign Up to discover brilliance!</p>
+        <button onclick="signupFunction()">Sign Up</button>
+        <button onclick="loginFunction()">Login</button>
+    </div>
+
+    <!-- JavaScript for Modal Functionality -->
+    <script>
+        // Get the modal elements
+        const modalOverlay = document.getElementById("modalOverlay");
+        const modalBox = document.getElementById("modalBox");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+
+        // Function to open the modal
+        function openModal() {
+            modalOverlay.style.display = "block";
+            modalBox.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modalOverlay.style.display = "none";
+            modalBox.style.display = "none";
+        }
+
+        // Event listener for the close button
+        closeModalBtn.addEventListener("click", closeModal);
+
+        // Event listener for clicking outside the modal to close it
+        modalOverlay.addEventListener("click", closeModal);
+
+        // Example: Automatically show the modal when the page loads
+        window.onload = function() {
+            openModal();
+        };
+        
+       <script>
+    // Function to open the popup with the enlarged image
+    function openPopup(imageSrc, designerName, designName) {
+        document.getElementById('popup-image').src = imageSrc; // Set the image source dynamically
+        document.getElementById('popup-designer-name').textContent = designerName; // Set designer name dynamically
+        document.getElementById('popup-overlay').style.display = 'flex'; // Show the overlay
+    }
+
+    // Function to close the popup
+    function closePopup() {
+        document.getElementById('popup-overlay').style.display = 'none'; // Hide the overlay
+    }
+
+    // Optional: Close the popup if the user clicks outside the modal
+    document.getElementById('popup-overlay').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closePopup();
+        }
+    });
+    
+</script>
+</body>
+</html>
