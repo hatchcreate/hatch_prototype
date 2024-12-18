@@ -4,296 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hatch!</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Trebuchet MS;
-            margin: 0;
-            padding: 0;
-            background-color: LemonChiffon;
-            overflow-y: auto;
-        }
-
-        header {
-            background-color: #154c79;
-            color: ivory;
-            padding: 10px 20px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            position: relative;
-        }
-
-        header img {
-            height: 120px;
-            width: auto;
-        }
-
-        .header-title {
-            flex-grow: 1;
-            font-size: 50px;
-            font-weight: bold;
-            margin: 0 auto;
-            text-align: center;
-            letter-spacing: 5px;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 0;
-        }
-
-        nav a {
-            margin: 0 15px;
-            color: #6F8FAF;
-            text-decoration: none;
-            font-weight: bold;
-            white-space: nowrap;
-            transition: color 0.3s, border-bottom 0.3s;
-        }
-        
-        nav a:hover {
-            color: #154c79;
-            border-bottom: 2px solid #154c79;
-        }
-
-        @media (max-width: 768px) {
-            nav a {
-                margin: 0 10px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            nav a {
-                margin: 0 5px;
-                font-size: 12px;
-            }
-        }
-
-        .account {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            margin-left: auto;
-        }
-
-        .account img {
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background-color: linen;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-        }
-
-        .dropdown a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown a:hover {
-            background-color: #ddd;
-        }
-
-        .account:hover .dropdown {
-            display: block;
-        }
-
-        .hero {
-            background-color: #254f6d;
-            font-family: Trebuchet MS;
-            color: #f5f5e8;
-            padding: 60px 20px;
-            text-align: center;
-            width: 100%;
-            position: relative;
-        }
-        
-        .hero h1{
-          font-size:36px;
-          margin-bottom: 30px;
-          font-weight: bold;
-          text-shadow: 2px 2px 0px rgba(150,150,150,0.5);
-          font-family: Trebuchet MS;
-          letter-spacing: 5px;
-        }
-        
-        .hero p{
-            font-size:20px;
-            font-weight: 400;
-            margin-bottom: 52px;
-            letter-spacing: 1.7px;
-        }
-        
-        
-        
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-            grid-template-rows: auto auto; /* 2 rows: first with two items, second with one item */
-            gap: 20px;
-            justify-content: center;
-            padding: 20px;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .category {
-            height: 300px;
-            border-radius: 15px;
-            background-color: #87afc7;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, background-color 0.3s;
-            padding: 20px;
-            margin: 13px;
-        }
-
-        .category:hover {
-            transform: scale(1.05);
-            background-color: #1e5a8b;
-            color: #fff;
-        }
-
-        .category h2 {
-            font-size: 24px;
-            color: #f9f3e8;
-            margin: 0;
-        }
-
-        /* Ensure Travel Products takes full width */
-        .travel-products {
-            grid-column: span 2; /* Span two columns */
-        }
-        
-        .category#home-goods {
-            height: 300px;
-            border-radius: 15px;
-            background-image: url('your-image-url-here'); /* Insert your image URL */
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, filter 0.3s;
-            filter: brightness(0.7); /* Diminish brightness */
-        }
-
-        .category#home-goods:hover {
-            transform: scale(1.05);
-            background-color: #1e5a8b;
-            color: #fff;
-            filter: brightness(1); /* Restore brightness on hover */
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Header with website title and navigation -->
-   <header>
-    <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
-    <h1 class="header-title">
-        <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
-    </h1>
-    <div class="account">
-        <a href="signup_login.html">
-            <img src="https://via.placeholder.com/50" alt="My account">
-        </a>
-         <div class="dropdown" id="account-dropdown">
+    <header>
+        <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
+        <h1 class="header-title">
+            <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
+        </h1>
+        <div class="account">
+            <a href="signup_login/index.html">
+                <img src="https://via.placeholder.com/50" alt="My account">
+            </a>
             <div class="dropdown" id="account-dropdown">
-                <a href="signup_login.html" id="signup-login">Sign Up/Log In</a>
+                <a href="signup_login/index.html" id="signup-login">Sign Up/Log In</a>
             </div>
-         </div>
-    </div>
-</header>
+        </div>
+    </header>
 
     <!-- Navigation bar -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="idea_pool.html">Idea Pool</a>
-        <a href="find_designers.html">Find Designers</a>
-        <a href="">#From Hatch! to Quack</a>
-        <a href="community.html">Community</a>
-        <a href="guide.html">Guide and Support</a>
+        <a href="index.html">Home</a> 
+        <a href="idea_pool/index.html">Idea Pool</a>
+        <a href="find_designers/index.html">Find Designers</a> 
+        <a href="#from-hatch-to-quack">#From Hatch! to Quack</a>
+        <a href="community/index.html">Community</a>
+        <a href="guide/index.html">Guide and Support</a>
     </nav>
-    
-     <script>
-        // Simulated login state (replace this logic with real authentication system)
-        const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
 
-        // DOM elements
-        const signupLogin = document.getElementById('signup-login');
-        const myAccount = document.getElementById('my-account');
-        const messages = document.getElementById('messages');
-        const orderDashboard = document.getElementById('order-dashboard');
-        const logoutBtn = document.getElementById('logout-btn');
-
-        // Update dropdown based on login state
-        if (userLoggedIn) {
-            signupLogin.style.display = 'none';
-            myAccount.style.display = 'block';
-            messages.style.display = 'block';
-            orderDashboard.style.display = 'block';
-            logoutBtn.style.display = 'block';
-        } else {
-            signupLogin.style.display = 'block';
-            myAccount.style.display = 'none';
-            messages.style.display = 'none';
-            orderDashboard.style.display = 'none';
-            logoutBtn.style.display = 'none';
-        }
-
-        // Logout functionality
-        logoutBtn.addEventListener('click', () => {
-            localStorage.setItem('userLoggedIn', 'false');
-            alert('Logged out successfully!');
-            location.reload();
-        });
-
-        // Simulated login for testing
-        signupLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.setItem('userLoggedIn', 'true');
-            alert('Logged in successfully!');
-            location.reload();
-        });
-    </script>
     <!-- Main section with hero image and content -->
     <div class="hero">
         <h1>Home</h1>
@@ -318,5 +58,6 @@
         <p>Hatch! &copy; 2024 | All rights reserved</p>
     </footer>
 
+    <script src="scripts.js"></script>
 </body>
 </html>

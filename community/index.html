@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Community | Hatch!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
+    <h1 class="header-title">
+        <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
+    </h1>
+    <div class="account">
+        <a href="../signup_login/index.html">
+            <img src="https://via.placeholder.com/50" alt="My account">
+        </a>
+         <div class="dropdown" id="account-dropdown">
+            <a href="../signup_login/index.html" id="signup-login">Sign Up/Log In</a>
+            <a href="profile.html" id="my-account" style="display: none;">My Account</a>
+            <a href="#" id="messages" style="display: none;">Messages</a>
+            <a href="#" id="order-dashboard" style="display: none;">Order Dashboard</a>
+            <a href="#" id="logout-btn" style="display: none;">Logout</a>
+         </div>
+    </div>
+</header>
+
+<nav>
+    <a href="../index.html">Home</a> 
+    <a href="../idea_pool/index.html">Idea Pool</a>
+    <a href="../find_designers/index.html">Find Designers</a> 
+    <a href="#from-hatch-to-quack">#From Hatch! to Quack</a>
+    <a href="index.html">Community</a>
+    <a href="../guide/index.html">Guide and Support</a>
+</nav>
+
+<div class="hero">
+    <h1>Community</h1>
+    <p>Join discussions to be a part of the change.</p>
+</div>
+
+<main>
+    <section class="post-idea-form">
+        <h2>Post an Idea</h2>
+        <form>
+            <label for="idea-title">Title</label>
+            <input type="text" id="idea-title" name="idea-title" required>
+            <label for="idea-category">Category</label>
+            <select id="idea-category" name="idea-category" required>
+                <option value="homegoods">Home Goods</option>
+                <option value="stationery">Stationery</option>
+                <option value="travel">Travel Products</option>
+            </select>
+            <label for="idea-description">Description</label>
+            <textarea id="idea-description" name="idea-description" rows="4" required></textarea>
+            <button type="submit" class="submit-button">Post</button>
+        </form>
+    </section>
+
+    <section class="discussion-threads">
+        <h2>A little tweak would be nice...</h2>
+        <div class="discussion-card">
+            <h3>Painless Hairclip</h3>
+            <p>My hair got pulled out this morning while adjusting the hairclip. If there is a painless one I'd love to change to that.</p>
+            <button class="upvote-btn" onclick="upvote('discussion-1')">⇧</button>
+            <span class="upvote-count" id="upvote-count-discussion-1">75</span>
+        </div>
+
+        <div class="discussion-card">
+            <h3>Smart Mirror</h3>
+            <p>I've always dreamed about having a mirror that would give me beauty advice according to my daily skin condition. That would make skincaring a lot easier.</p>
+            <button class="upvote-btn" onclick="upvote('discussion-2')">⇧</button>
+            <span class="upvote-count" id="upvote-count-discussion-2">68</span>
+        </div>
+        
+        <div class="discussion-card">
+            <h3>Foldable Suitcase</h3>
+            <p>Hey guys, don't you think that if your suitcase can be transformed into something you can also use in your daily life, it would be a lot more useful?</p>
+            <button class="upvote-btn" onclick="upvote('discussion-3')">⇧</button>
+            <span class="upvote-count" id="upvote-count-discussion-3">21</span>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Hatch! &copy; 2024 | All rights reserved</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

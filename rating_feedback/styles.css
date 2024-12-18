@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Trebuchet MS;
+    margin: 0;
+    padding: 0;
+    background-color: LemonChiffon;
+    overflow-y: auto;
+}
+
+header {
+    background-color: #154c79;
+    color: ivory;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 120px;
+    width: auto;
+}
+
+.header-title {
+    flex-grow: 1;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #6F8FAF;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: #154c79;
+    border-bottom: 2px solid #154c79;
+}
+
+.account img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: linen;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.account:hover .dropdown {
+    display: block;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rating-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+textarea, input[type="text"], button {
+    resize: none;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+}
+textarea::-webkit-scrollbar {
+    width: 10px; 
+    height: 8px; 
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #ccc; 
+    border-radius: 4px; 
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: #1f4c79;
+}
+
+.stars {
+    direction: ltr;
+    display: inline-block;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 30px;
+    color: #ccc; 
+    cursor: pointer;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+}
+
+
+button {
+    background-color: #1f4c79;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #174163;
+    transform: scale(1.01);
+}
