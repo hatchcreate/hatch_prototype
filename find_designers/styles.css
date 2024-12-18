@@ -28,6 +28,28 @@ header img {
     width: auto;
 }
 
+textarea {
+    resize: none;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+}
+textarea::-webkit-scrollbar {
+    width: 10px; 
+    height: 8px; 
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #ccc; 
+    border-radius: 4px; 
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: #1f4c79;
+}
+
 .header-title {
     flex-grow: 1;
     font-size: 50px;
