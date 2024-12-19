@@ -1,0 +1,380 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Trebuchet MS;
+    margin: 0;
+    padding: 0;
+    background-color: LemonChiffon;
+    overflow-y: auto;
+}
+
+header {
+    background-color: #154c79;
+    color: ivory;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+header img {
+    height: 120px;
+    width: auto;
+}
+
+.header-title {
+    flex-grow: 1;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #6F8FAF;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: #154c79;
+    border-bottom: 2px solid #154c79;
+}
+
+@media (max-width: 768px) {
+    nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    nav a {
+        margin: 0 5px;
+        font-size: 12px;
+    }
+}
+
+.account {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.account img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: linen;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.account:hover .dropdown {
+    display: block;
+}
+
+.hero {
+    background-color: #254f6d;
+    font-family: Trebuchet MS;
+    color: #f5f5e8;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.hero h1{
+  font-size:36px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgba(150,150,150,0.5);
+  font-family: Trebuchet MS;
+  letter-spacing: 5px;
+}
+
+.hero p{
+    font-size:20px;
+    font-weight: 400;
+    margin-bottom: 52px;
+    letter-spacing: 1.7px;
+}
+
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.designer-profile {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.profile-header {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+
+.profile-pic {
+border-radius: 50%;
+width: 150px;
+height: 150px;
+object-fit: cover;
+border: 4px solid #fff;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+margin-top: 30px;
+}
+
+.profile-info h1 {
+font-size: 36px;
+color: #1f4c79;
+margin: 0;
+}
+
+.bio {
+font-size: 18px;
+max-width: 650px;
+margin-top: 15px;
+color: #555;
+line-height: 1.6;
+}
+
+.social-links {
+margin-top: 30px;
+display: flex;
+gap: 20px;
+}
+
+.social-icon {
+width: 45px;
+height: 45px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #fff;
+border-radius: 50%;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+transform: scale(1.1);
+}
+
+.social-icon img {
+width: 20px;
+}
+
+
+
+
+/* Modern Review Section */
+.reviews {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background-color: #87afc7;
+padding: 6px 14px;
+border-radius: 20px;
+
+font-size: 16px;
+color: white;
+font-family: Trebuchet MS; /* Matches your button font */
+white-space: nowrap; /* Prevents text wrapping */
+}
+
+.star-icon {
+color: #ffcc00; /* Gold color for stars */
+font-size: 20px;
+}
+
+.review-text {
+font-weight: 600; /* Bold for emphasis */
+}
+
+
+.portfolio-item {
+background-color: #f5f5f5;  /* Light background color for the card */
+border-radius: 15px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+padding: 15px;
+width: 280px;  /* Make it a square by setting equal width and height */
+height: 280px; /* Square height */
+position: relative;
+transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+transform: scale(1.05);  /* Slight zoom effect on hover */
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item img {
+width: 100%;
+height: 100%;  /* Make the image fill the entire square container */
+object-fit: cover;
+border-radius: 15px;
+}
+
+.portfolio-item h3 {
+font-size: 22px;
+color: #595959; /* Brand color */
+padding: 2px;
+margin-top: 180px;
+}
+
+
+
+.portfolio-item a {
+text-decoration: none;
+color: #818589;
+font-weight: 600;
+margin-top: 10px;
+display: inline-block;
+padding: 8px 16px;
+border-radius: 25px;
+border: 2px solid #1f4c79;
+transition: background-color 0.3s ease;
+}
+
+.portfolio-item a:hover {
+background-color: #1f4c79;
+color: #fff;
+}
+
+
+
+
+
+/* Ensure portfolio items are displayed in grid layout */
+.portfolio-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 15px;
+justify-items: center; /* Centers the items in each grid cell */
+}
+
+/* Adjusting for responsiveness */
+@media (max-width: 768px) {
+.portfolio-gallery {
+grid-template-columns: 1fr 1fr; /* 2 columns on medium screens */
+}
+.collaboration-container {
+flex-direction: column; /* Stack the collaboration logos on smaller screens */
+}
+}
+
+@media (max-width: 480px) {
+.portfolio-gallery {
+grid-template-columns: 1fr; /* Single column on smaller screens */
+}
+.collaboration-container {
+flex-direction: column; /* Stack the collaboration logos on small screens */
+}
+}
+
+
+.collaboration img {
+    width: 30px;  /* Adjust logo size */
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px;
+}
+
+
+/* Trusted text adjustment */
+.trusted-text p {
+    margin-left: 30px;  /* Add extra space to the left */
+    font-size: 25px;
+    color: #333;
+    margin-top: 20px;
+    padding: 50px 20px 20px;
+}
+
+.contact-button {
+    background-color: #1f4c79;
+    color: white;
+    margin-top: 10px; 
+    padding: 14px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block; 
+    width: auto;
+    width: fit-content;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+}
+
+
+.button-container {
+    display: flex; /* Flexbox Layout */
+    justify-content: center; /* Horizontally Center the Button */
+    align-items: center; /* Vertically Center the Button */
+    height: auto; /* Adjust Height Automatically */
+    position: relative; /* Stabilize Internal Content */
+    }
+    
+.contact-button:hover {
+    background-color: #B0C4DE;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+    
+
+.contact-button {
+    display: block;
+}

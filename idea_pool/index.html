@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Pool - Hatch!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
+        <h1 class="header-title">
+            <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
+        </h1>
+        <div class="account">
+            <a href="../signup_login/index.html">
+                <img src="https://via.placeholder.com/50" alt="My account">
+            </a>
+            <div class="dropdown">
+                <a href="../signup_login/index.html">Signup/Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="../index.html">Home</a> 
+        <a href="index.html">Idea Pool</a>
+        <a href="../find_designers/index.html">Find Designers</a> 
+        <a href="#from-hatch-to-quack">#From Hatch! to Quack</a>
+        <a href="../community/index.html">Community</a>
+        <a href="../guide/index.html">Guide and Support</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Idea Pool</h1>
+        <p>From sketch to hatch, we'll walk through it together!</p>
+    </div>
+
+    <!-- Idea Pool Section -->
+    <section class="idea-pool-section">
+        <h2>Current Ideas</h2>
+        <div class="category-buttons">
+            <button class="category-btn" onclick="filterIdeas('home-goods')">Home Goods</button>
+            <button class="category-btn" onclick="filterIdeas('stationery')">Stationery</button>
+            <button class="category-btn" onclick="filterIdeas('travel-products')">Travel Products</button>
+        </div>
+        
+        <div class="ideas-grid">
+            <!-- Idea Card 1 -->
+            <div class="idea-card idea-item home-goods active" onclick="designers_gallery.html">
+                <h3>Atomic Storage Box</h3>
+                <img src="image1_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Agetha Chen</span>
+                </div>
+                <div class="idea-description">Easy storaging without limits.</div>
+            <div class="button-container">
+                <a href="../messages/index.html">
+                <button class="contact-button">Contact</button>
+                </a>
+            </div>
+            </div>
+        <!-- Idea Card 2 -->
+            <div class="idea-card idea-item stationery active" onclick="openPopup('image2.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image2_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                    <a href="../messages/index.html">
+                    <button class="contact-button">Contact</button>
+                    </a>
+                </div>
+            </div>
+        <!-- Idea Card 3 -->
+            <div class="idea-card idea-item travel-products active" onclick="openPopup('image3.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image3_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                    <a href="../messages/index.html">
+                    <button class="contact-button">Contact</button>
+                    </a>
+                </div>
+             </div>
+        <!-- Additional Idea Cards -->
+            <div class="idea-card idea-item home-goods active" onclick="openPopup('image4.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image4_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="../messages/index.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+            <div class="idea-card idea-item stationery active" onclick="openPopup('image5.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image5_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="../messages/index.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+            
+            <div class="idea-card idea-item travel-products active" onclick="openPopup('image6.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image6_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="../messages/index.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+            <div class="idea-card idea-item home-goods active" onclick="openPopup('image7.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image7_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="../messages/index.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+             <div class="idea-card idea-item stationery active" onclick="openPopup('image8.jpg', 'Designer Name', 'Design Name')">
+                <h3>Design Name</h3>
+                <img src="image8_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Designer Name</span>
+                </div>
+                <div class="idea-description">short intro</div>
+                <div class="button-container">
+                <a href="../messages/index.html">
+                <button class="contact-button">Contact</button>
+                </a>
+                </div>
+            </div>
+        
+            <!-- Idea Card Example -->
+            <div class="idea-card idea-item home-goods active" onclick="openPopup('image1.jpg', 'Agetha Chen', 'Atomic Storage Box')">
+                <h3>Atomic Storage Box</h3>
+                <img src="image1_thumb.jpg" alt="Design Image" style="width: 100%; height: auto;">
+                <div class="designer-info">
+                    <img class="designer-profile-pic" src="profile.jpg" alt="Designer Profile">
+                    <span>Agetha Chen</span>
+                </div>
+                <div class="idea-description">Easy storaging without limits.</div>
+                <div class="button-container">
+                    <a href="../messages/index.html">
+                        <button class="contact-button">Contact</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <img src="" alt="Enlarged Design" class="popup-image" id="popup-image">
+            <div class="designer-info">
+                <span id="popup-designer-name">Designer Name</span>
+            </div>
+            <h3 id="popup-design-name">Design Name</h3>
+            <a href="#" class="designer-gallery-link">Visit Designer's Gallery</a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Hatch! All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

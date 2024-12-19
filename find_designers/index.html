@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call for Collab</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="https://assets.onecompiler.app/42s266nnn/42s266wy4/Hatch!%20Logo%20(background%20removed).png" alt="Hatch! Logo">
+        <h1 class="header-title">
+            <a href="index.html" style="color: inherit; text-decoration: none;">Hatch!</a>
+        </h1>
+        <div class="account">
+            <a href="../signup_login/index.html">
+                <img src="https://via.placeholder.com/50" alt="My account">
+            </a>
+            <div class="dropdown" id="account-dropdown">
+                <a href="../signup_login/index.html" id="signup-login">Sign Up/Log In</a>
+                <a href="profile.html" id="my-account" style="display: none;">My Account</a>
+                <a href="#" id="messages" style="display: none;">Messages</a>
+                <a href="#" id="order-dashboard" style="display: none;">Order Dashboard</a>
+                <a href="#" id="logout-btn" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="../index.html">Home</a> 
+        <a href="../idea_pool/index.html">Idea Pool</a>
+        <a href="../find_designers/index.html">Find Designers</a> 
+        <a href="#from-hatch-to-quack">#From Hatch! to Quack</a>
+        <a href="../community/index.html">Community</a>
+        <a href="../guide/index.html">Guide and Support</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Find Designers</h1>
+        <p>Fresh ideas, new opportunities.</p>
+    </div>
+
+    <div class="collab-container">
+        <h2>Submit Your Collaboration Request</h2>
+        <form class="collab-form">
+            <label for="business-name">Business Name:</label>
+            <input type="text" id="business-name" name="business-name" placeholder="Your business name" required>
+
+            <label for="category">Project Category:</label>
+            <select id="category" name="category" required>
+                <option value="">--Select a category--</option>
+                <option value="home-goods">Home Goods</option>
+                <option value="stationery">Stationery</option>
+                <option value="travel-products">Travel Products</option>
+            </select>
+
+            <label for="project-title">Project Title:</label>
+            <input type="text" id="project-title" name="project-title" placeholder="Brief project title" required>
+
+            <label for="description">Project Description:</label>
+            <textarea id="description" name="description" rows="5" placeholder="Describe your project and what you're looking for" required></textarea>
+
+            <label for="business-website">Official Website:</label>
+            <input type="text" id="business-website" name="business-website" placeholder="Official Website (optional)">
+
+            <label for="deadline">Submission Deadline:</label>
+            <input type="date" id="deadline" name="deadline" required>
+
+            <button type="submit">Post Request</button>
+        </form>
+
+        <div class="featured-projects">
+            <h2>Featured Projects</h2>
+            <div class="nav-links">
+                <a href="#" class="active" onclick="filterProjects('all')"><u>All</u></a>
+                <a href="#" onclick="filterProjects('home-goods')"><u>Home Goods</u></a>
+                <a href="#" onclick="filterProjects('stationery')"><u>Stationery</u></a>
+                <a href="#" onclick="filterProjects('travel-products')"><u>Travel Products</u></a>
+            </div>
+
+            <div class="project-card" data-category="Stationery">
+                <h3>Writing a 0 Waste Future</h3>
+                <p>Looking for a sustainable solution to address correction tape waste.</p>
+                <p><strong>Deadline:</strong> Dec 20, 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Hatch! &copy; 2024 | All rights reserved</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
